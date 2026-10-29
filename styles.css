@@ -1,0 +1,43 @@
+:root{--bg:#0e0e16;--text:#ecebf7;--muted:#9a95b6;--accent:#6b4fd8;--border:#2a2a3c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+.intro,.outro{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  align-items:center;text-align:center;padding:2rem 1.5rem;gap:1rem}
+.intro{max-width:none}
+.intro h1{font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.02em;max-width:14ch}
+.intro p{color:var(--muted);max-width:52ch}
+.intro strong,.intro em{color:var(--text)}
+.hint{margin-top:2rem;color:var(--accent);font-weight:600;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(8px)}}
+.muted{color:var(--muted)}
+
+/* Pinned horizontal-scroll section: tall so there is vertical scroll distance
+   to convert, with a sticky viewport-height stage inside it. */
+.hscroll{position:relative}
+.sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
+
+.track{display:flex;gap:2rem;padding:0 6vw;will-change:transform}
+.card{flex:0 0 clamp(240px,38vw,440px);height:60vh;border-radius:20px;border:1px solid var(--border);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:1.75rem;position:relative;overflow:hidden}
+.card span{font-family:ui-monospace,monospace;color:var(--muted);font-size:.95rem}
+.card h2{font-size:2rem;letter-spacing:-.01em}
+.c1{background:linear-gradient(160deg,#241b4a,#15121f)}
+.c2{background:linear-gradient(160deg,#1b3a4a,#121a1f)}
+.c3{background:linear-gradient(160deg,#4a1b3a,#1f1219)}
+.c4{background:linear-gradient(160deg,#2a4a1b,#171f12)}
+.c5{background:linear-gradient(160deg,#4a3a1b,#1f1a12)}
+
+.dir-readout{position:absolute;left:6vw;bottom:5vh;font-family:ui-monospace,monospace;
+  font-size:.85rem;color:var(--muted);background:rgba(23,23,34,.8);border:1px solid var(--border);
+  border-radius:8px;padding:.4rem .7rem}
+.dir-readout b{color:var(--accent)}
+
+@media (prefers-reduced-motion:reduce){
+  /* No scroll-jacking: let everything flow vertically. */
+  .hscroll{height:auto !important}
+  .sticky{position:static;height:auto;overflow:visible;display:block}
+  .track{flex-direction:column;transform:none !important;padding:1.5rem 1.5rem}
+  .card{width:100%;height:auto;min-height:180px}
+  .dir-readout{position:static;display:inline-block;margin:1rem 1.5rem}
+}

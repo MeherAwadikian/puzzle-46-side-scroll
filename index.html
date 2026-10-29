@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forge Studio — Side-scroll with direction change</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section class="intro">
+    <h1>Side-scrolling, with a direction change</h1>
+    <p>Keep scrolling <strong>down</strong>. Each pinned panel converts your vertical scroll into
+       horizontal motion — but the direction <em>reverses</em> panel to panel: the first track slides
+       left, the next slides right, and so on. A live readout shows the current direction.</p>
+    <p class="hint">↓ scroll ↓</p>
+  </section>
+
+  <!-- Each .hscroll is pinned (sticky) while you scroll its height; the inner
+       .track translates horizontally. data-dir sets the scroll direction. -->
+  <section class="hscroll" data-dir="left" style="height:320vh">
+    <div class="sticky">
+      <div class="track" id="track-1">
+        <div class="card c1"><span>01</span><h2>Discover</h2></div>
+        <div class="card c2"><span>02</span><h2>Design</h2></div>
+        <div class="card c3"><span>03</span><h2>Prototype</h2></div>
+        <div class="card c4"><span>04</span><h2>Build</h2></div>
+        <div class="card c5"><span>05</span><h2>Ship</h2></div>
+      </div>
+      <p class="dir-readout">direction: <b data-dir-label>—</b></p>
+    </div>
+  </section>
+
+  <section class="hscroll" data-dir="right" style="height:320vh">
+    <div class="sticky">
+      <div class="track" id="track-2">
+        <div class="card c5"><span>06</span><h2>Measure</h2></div>
+        <div class="card c4"><span>07</span><h2>Learn</h2></div>
+        <div class="card c3"><span>08</span><h2>Iterate</h2></div>
+        <div class="card c2"><span>09</span><h2>Scale</h2></div>
+        <div class="card c1"><span>10</span><h2>Refine</h2></div>
+      </div>
+      <p class="dir-readout">direction: <b data-dir-label>—</b></p>
+    </div>
+  </section>
+
+  <section class="outro">
+    <p>…and vertical scrolling resumes. <span class="muted">(Reduced-motion users get a normal vertical list.)</span></p>
+  </section>
+
+  <script src="scroll.js"></script>
+</body>
+</html>
